@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Monitor</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 18px; }
+        .results { margin-top: 20px; }
+        .alert { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Monitoring System</h1>
+        <p>Click the button below to check for file modifications.</p>
+        <form method="get">
+            <button type="submit">Start Detection</button>
+        </form>
+
+        <div class="results">
+            <h2>Modifications Detected:</h2>
+            {% if modifications %}
+                <ul>
+                    {% for modification in modifications %}
+                        <li class="alert">{{ modification }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No modifications detected.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
